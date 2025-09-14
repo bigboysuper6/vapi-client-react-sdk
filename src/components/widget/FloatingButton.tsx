@@ -47,8 +47,8 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
     position: 'relative' as const,
     // Adjust height when subtitle is present
     ...(ctaSubtitle &&
-    (styles.size === 'compact' || styles.size === 'full') &&
-    !isTinyVoice
+      (styles.size === 'compact' || styles.size === 'full') &&
+      !isTinyVoice
       ? { height: styles.size === 'compact' ? '4rem' : '4.5rem' }
       : {}),
   };

@@ -55,6 +55,7 @@ const HybridControls: React.FC<HybridControlsProps> = ({
       }
     />
     <button
+      id="vapi-chat-button"
       onClick={onSendMessage}
       disabled={!chatInput.trim() || !isChatAvailable || isCallActive}
       className={`vapi-h-10 vapi-w-10 vapi-flex vapi-items-center vapi-justify-center vapi-rounded-lg vapi-transition-all ${
@@ -88,6 +89,7 @@ const HybridControls: React.FC<HybridControlsProps> = ({
       </button>
     )}
     <button
+      id="vapi-voice-button"
       onClick={onToggleCall}
       disabled={!isVoiceAvailable && !isCallActive}
       className={`vapi-h-10 vapi-w-10 vapi-flex vapi-items-center vapi-justify-center vapi-rounded-lg vapi-transition-all ${

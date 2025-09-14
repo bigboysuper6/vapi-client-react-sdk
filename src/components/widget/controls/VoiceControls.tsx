@@ -37,6 +37,7 @@ const VoiceControls: React.FC<VoiceControlsProps> = ({
       </button>
     )}
     <button
+      id="vapi-voice-button"
       onClick={onToggleCall}
       disabled={!isAvailable && !isCallActive}
       className={`vapi-px-6 vapi-py-3 vapi-rounded-full vapi-font-medium vapi-transition-all vapi-flex vapi-items-center vapi-space-x-2 ${
