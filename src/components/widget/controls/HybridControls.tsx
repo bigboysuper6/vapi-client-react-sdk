@@ -44,10 +44,10 @@ const HybridControls: React.FC<HybridControlsProps> = ({
       }`}
       style={
         {
-          // '--tw-ring-color':
-          //   styles.theme === 'dark'
-          //     ? `${colors.accentColor}33` // 20% opacity in dark mode
-          //     : `${colors.accentColor}80`, // 50% opacity in light mode
+          '--tw-ring-color':
+            styles.theme === 'dark'
+              ? `${colors.accentColor}33` // 20% opacity in dark mode
+              : `${colors.accentColor}80`, // 50% opacity in light mode
           backgroundColor: colors.baseColor,
           filter:
             styles.theme === 'dark' ? 'brightness(1.8)' : 'brightness(0.98)',
