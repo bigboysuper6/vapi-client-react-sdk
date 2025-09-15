@@ -20,12 +20,16 @@ const EmptyConversation: React.FC<EmptyConversationProps> = ({
       {mode === 'voice' ? (
         <MicrophoneIcon
           size={32}
-          className={theme === 'dark' ? 'vapi-text-gray-400' : 'vapi-text-gray-400'}
+          className={
+            theme === 'dark' ? 'vapi-text-gray-400' : 'vapi-text-gray-400'
+          }
         />
       ) : (
         <ChatCircleIcon
           size={32}
-          className={theme === 'dark' ? 'vapi-text-gray-400' : 'vapi-text-gray-400'}
+          className={
+            theme === 'dark' ? 'vapi-text-gray-400' : 'vapi-text-gray-400'
+          }
         />
       )}
     </div>

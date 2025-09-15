@@ -11,9 +11,13 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
   <div className="markdown-content">
     <ReactMarkdown
       components={{
-        p: ({ children }) => <p className="vapi-mb-3 last:vapi-mb-0">{children}</p>,
+        p: ({ children }) => (
+          <p className="vapi-mb-3 last:vapi-mb-0">{children}</p>
+        ),
         ul: ({ children }) => (
-          <ul className="vapi-list-disc vapi-list-inside vapi-mb-3 last:vapi-mb-0">{children}</ul>
+          <ul className="vapi-list-disc vapi-list-inside vapi-mb-3 last:vapi-mb-0">
+            {children}
+          </ul>
         ),
         ol: ({ children }) => (
           <ol className="vapi-list-decimal vapi-list-inside vapi-mb-3 last:vapi-mb-0">
@@ -51,7 +55,9 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
           <h1 className="vapi-text-lg vapi-font-bold vapi-mb-1">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="vapi-text-base vapi-font-bold vapi-mb-1">{children}</h2>
+          <h2 className="vapi-text-base vapi-font-bold vapi-mb-1">
+            {children}
+          </h2>
         ),
         h3: ({ children }) => (
           <h3 className="vapi-text-sm vapi-font-bold vapi-mb-1">{children}</h3>
@@ -78,7 +84,9 @@ const ConversationMessage: React.FC<ConversationMessageProps> = ({
   styles,
   isLoading = false,
 }) => (
-  <div className={`vapi-flex ${role === 'user' ? 'vapi-justify-end' : 'vapi-justify-start'}`}>
+  <div
+    className={`vapi-flex ${role === 'user' ? 'vapi-justify-end' : 'vapi-justify-start'}`}
+  >
     <div
       className={`vapi-max-w-xs vapi-px-3 vapi-py-2 ${messageRadiusClasses[styles.radius]} vapi-text-sm`}
       style={{

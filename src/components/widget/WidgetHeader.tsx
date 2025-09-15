@@ -60,7 +60,9 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
           <div className="vapi-font-medium">{mainLabel}</div>
           <div
             className={`vapi-text-sm ${
-              styles.theme === 'dark' ? 'vapi-text-gray-300' : 'vapi-text-gray-600'
+              styles.theme === 'dark'
+                ? 'vapi-text-gray-300'
+                : 'vapi-text-gray-600'
             }`}
           >
             {getStatusMessage()}
