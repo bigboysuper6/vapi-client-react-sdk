@@ -18,7 +18,7 @@ import VapiConfigurationSection from './components/builder/VapiConfigurationSect
 
 function App() {
   const [config, setConfig] = useState<WidgetConfig>({
-    mode: 'hybrid',
+    mode: 'chat',
     theme: 'light',
     // Default colors matching VapiWidget defaults
     baseBgColor: '#ffffff', // Light mode default (automatically switches to #000000 in dark mode)
@@ -26,7 +26,7 @@ function App() {
     ctaButtonColor: '#000000', // Default black for buttons
     ctaButtonTextColor: '#ffffff', // Default white for button text
     borderRadius: 'large',
-    size: 'compact',
+    size: 'full',
     position: 'bottom-right',
     title: 'TALK WITH AI',
     ctaTitle: 'Chat with Support',

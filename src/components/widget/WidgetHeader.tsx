@@ -47,7 +47,10 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
       style={{ backgroundColor: colors.baseColor }}
     >
       <div className="vapi-flex vapi-items-center vapi-space-x-3">
-        {isCallActive || isTyping || isSpeaking || connectionStatus === 'connecting' ? (
+        {isCallActive ||
+        isTyping ||
+        isSpeaking ||
+        connectionStatus === 'connecting' ? (
           <AnimatedStatusIcon
             size={40}
             connectionStatus={connectionStatus}
