@@ -4,7 +4,6 @@ import {
   MicrophoneIcon,
   MicrophoneSlashIcon,
   StopIcon,
-  WaveformIcon,
 } from '@phosphor-icons/react';
 import { HybridControlsProps } from '../../types';
 
@@ -114,7 +113,7 @@ const HybridControls: React.FC<HybridControlsProps> = ({
       ) : isCallActive ? (
         <StopIcon size={20} weight="fill" />
       ) : (
-        <WaveformIcon size={20} weight="bold" />
+        <MicrophoneIcon size={20} weight="fill" />
       )}
     </button>
   </div>

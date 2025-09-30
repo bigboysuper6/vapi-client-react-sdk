@@ -1,6 +1,7 @@
 import React from 'react';
 import { XIcon, ArrowsClockwiseIcon } from '@phosphor-icons/react';
 import AnimatedStatusIcon from '../AnimatedStatusIcon';
+import AgentIcon from '../AgentIcon';
 import { WidgetHeaderProps } from '../types';
 
 const WidgetHeader: React.FC<WidgetHeaderProps> = ({
@@ -46,15 +47,23 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
       style={{ backgroundColor: colors.baseColor }}
     >
       <div className="vapi-flex vapi-items-center vapi-space-x-3">
-        <AnimatedStatusIcon
-          size={40}
-          connectionStatus={connectionStatus}
-          isCallActive={isCallActive}
-          isSpeaking={isSpeaking}
-          isTyping={isTyping}
-          baseColor={colors.accentColor}
-          colors={colors.accentColor}
-        />
+        {isCallActive || isTyping || isSpeaking || connectionStatus === 'connecting' ? (
+          <AnimatedStatusIcon
+            size={40}
+            connectionStatus={connectionStatus}
+            isCallActive={isCallActive}
+            isSpeaking={isSpeaking}
+            isTyping={isTyping}
+            baseColor={colors.accentColor}
+            colors={colors.accentColor}
+          />
+        ) : (
+          <AgentIcon
+            size={40}
+            color={colors.accentColor}
+            backgroundColor="transparent"
+          />
+        )}
 
         <div>
           <div className="vapi-font-medium">{mainLabel}</div>
