@@ -24,7 +24,7 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
   assistantOverrides,
   apiUrl,
   position = 'bottom-right',
-  size = 'full',
+  size: sizeProp = 'full',
   borderRadius,
   radius = 'medium', // deprecated
   mode = 'chat',
@@ -81,9 +81,13 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
   const [hasConsent, setHasConsent] = useState(false);
   const [chatInput, setChatInput] = useState('');
   const [showEndScreen, setShowEndScreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const conversationEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Auto-detect mobile and adjust size
+  const size = isMobile ? 'tiny' : sizeProp;
 
   const effectiveBorderRadius = borderRadius ?? radius;
   const effectiveBaseBgColor = baseBgColor ?? baseColor;
@@ -203,6 +207,16 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
       gap: '0.75rem',
     };
   };
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (effectiveConsentRequired) {
