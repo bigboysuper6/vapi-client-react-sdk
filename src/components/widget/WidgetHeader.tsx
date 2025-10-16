@@ -14,6 +14,8 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
   mainLabel,
   onClose,
   onReset,
+  onChatComplete,
+  showEndChatButton,
   colors,
   styles,
 }) => {
@@ -81,7 +83,16 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
           </div>
         </div>
       </div>
-      <div className="vapi-flex vapi-items-center vapi-space-x-2">
+      <div className="flex items-center space-x-2">
+        {showEndChatButton !== false && mode === 'chat' && (
+          <button
+            onClick={onChatComplete}
+            className={`text-red-600 text-sm font-medium px-2 py-1 border border-transparent hover:border-red-600 rounded-md transition-colors`}
+            title="End Chat"
+          >
+            End Chat
+          </button>
+        )}
         <button
           onClick={onReset}
           className={`vapi-w-8 vapi-h-8 vapi-rounded-full vapi-flex vapi-items-center vapi-justify-center vapi-transition-all}`}
