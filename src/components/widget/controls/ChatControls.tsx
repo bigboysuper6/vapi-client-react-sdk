@@ -38,7 +38,7 @@ const ChatControls: React.FC<ChatControlsProps> = ({
       }
     />
     <button
-      id="chat-button"
+      id="vapi-chat-button"
       onClick={onSendMessage}
       disabled={!chatInput.trim() || !isAvailable}
       className={`h-10 w-10 flex items-center justify-center rounded-lg transition-all ${
