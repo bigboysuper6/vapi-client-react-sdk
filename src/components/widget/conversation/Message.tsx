@@ -12,27 +12,27 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
     <ReactMarkdown
       components={{
         p: ({ children }) => (
-          <p className="vapi-mb-3 last:vapi-mb-0">{children}</p>
+          <p className="mb-3 last:mb-0">{children}</p>
         ),
         ul: ({ children }) => (
-          <ul className="vapi-list-disc vapi-list-inside vapi-mb-3 last:vapi-mb-0">
+          <ul className="list-disc list-inside mb-3 last:mb-0">
             {children}
           </ul>
         ),
         ol: ({ children }) => (
-          <ol className="vapi-list-decimal vapi-list-inside vapi-mb-3 last:vapi-mb-0">
+          <ol className="list-decimal list-inside mb-3 last:mb-0">
             {children}
           </ol>
         ),
-        li: ({ children }) => <li className="vapi-mb-0.5">{children}</li>,
+        li: ({ children }) => <li className="mb-0.5">{children}</li>,
         code: ({ children, ...props }) => {
           const inline = !('inline' in props) || props.inline;
           return inline ? (
-            <code className="vapi-px-1 vapi-py-0.5 vapi-rounded vapi-bg-black vapi-bg-opacity-10 vapi-text-sm">
+            <code className="px-1 py-0.5 rounded bg-black bg-opacity-10 text-sm">
               {children}
             </code>
           ) : (
-            <pre className="vapi-p-2 vapi-rounded vapi-bg-black vapi-bg-opacity-10 vapi-overflow-x-auto vapi-text-sm">
+            <pre className="p-2 rounded bg-black bg-opacity-10 overflow-x-auto text-sm">
               <code>{children}</code>
             </pre>
           );
@@ -42,28 +42,28 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="vapi-underline hover:vapi-opacity-80"
+            className="underline hover:opacity-80"
           >
             {children}
           </a>
         ),
         strong: ({ children }) => (
-          <strong className="vapi-font-semibold">{children}</strong>
+          <strong className="font-semibold">{children}</strong>
         ),
-        em: ({ children }) => <em className="vapi-italic">{children}</em>,
+        em: ({ children }) => <em className="italic">{children}</em>,
         h1: ({ children }) => (
-          <h1 className="vapi-text-lg vapi-font-bold vapi-mb-1">{children}</h1>
+          <h1 className="text-lg font-bold mb-1">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="vapi-text-base vapi-font-bold vapi-mb-1">
+          <h2 className="text-base font-bold mb-1">
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="vapi-text-sm vapi-font-bold vapi-mb-1">{children}</h3>
+          <h3 className="text-sm font-bold mb-1">{children}</h3>
         ),
         blockquote: ({ children }) => (
-          <blockquote className="vapi-border-l-2 vapi-pl-2 vapi-my-3 vapi-opacity-80">
+          <blockquote className="border-l-2 pl-2 my-3 opacity-80">
             {children}
           </blockquote>
         ),
@@ -72,7 +72,7 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
       {content}
     </ReactMarkdown>
     {isLoading && role === 'assistant' && (
-      <span className="vapi-inline-block vapi-w-0.5 vapi-h-4 vapi-ml-0.5 vapi-bg-current vapi-animate-blink" />
+      <span className="inline-block w-0.5 h-4 ml-0.5 bg-current animate-blink" />
     )}
   </div>
 );
@@ -85,10 +85,10 @@ const ConversationMessage: React.FC<ConversationMessageProps> = ({
   isLoading = false,
 }) => (
   <div
-    className={`vapi-flex ${role === 'user' ? 'vapi-justify-end' : 'vapi-justify-start'}`}
+    className={`flex ${role === 'user' ? 'justify-end' : 'justify-start'}`}
   >
     <div
-      className={`vapi-max-w-xs vapi-px-3 vapi-py-2 ${messageRadiusClasses[styles.radius]} vapi-text-sm`}
+      className={`max-w-xs px-3 py-2 ${messageRadiusClasses[styles.radius]} text-sm`}
       style={{
         backgroundColor:
           role === 'user'

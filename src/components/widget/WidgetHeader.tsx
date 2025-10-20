@@ -41,14 +41,14 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
 
   return (
     <div
-      className={`vapi-relative vapi-z-10 vapi-p-4 vapi-flex vapi-items-center vapi-justify-between vapi-border-b ${
+      className={`relative z-10 p-4 flex items-center justify-between border-b ${
         styles.theme === 'dark'
-          ? 'vapi-text-white vapi-border-gray-800 vapi-shadow-lg'
-          : 'vapi-text-gray-900 vapi-border-gray-200 vapi-shadow-sm'
+          ? 'text-white border-gray-800 shadow-lg'
+          : 'text-gray-900 border-gray-200 shadow-sm'
       }`}
       style={{ backgroundColor: colors.baseColor }}
     >
-      <div className="vapi-flex vapi-items-center vapi-space-x-3">
+      <div className="flex items-center space-x-3">
         {isCallActive ||
         isTyping ||
         isSpeaking ||
@@ -71,12 +71,12 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
         )}
 
         <div>
-          <div className="vapi-font-medium">{mainLabel}</div>
+          <div className="font-medium">{mainLabel}</div>
           <div
-            className={`vapi-text-sm ${
+            className={`text-sm ${
               styles.theme === 'dark'
-                ? 'vapi-text-gray-300'
-                : 'vapi-text-gray-600'
+                ? 'text-gray-300'
+                : 'text-gray-600'
             }`}
           >
             {getStatusMessage()}
@@ -95,14 +95,14 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
         )}
         <button
           onClick={onReset}
-          className={`vapi-w-8 vapi-h-8 vapi-rounded-full vapi-flex vapi-items-center vapi-justify-center vapi-transition-all}`}
+          className={`w-8 h-8 rounded-full flex items-center justify-center transition-all}`}
           title="Reset conversation"
         >
           <ArrowsClockwiseIcon size={16} weight="bold" />
         </button>
         <button
           onClick={onClose}
-          className={`vapi-w-8 vapi-h-8 vapi-rounded-full vapi-flex vapi-items-center vapi-justify-center vapi-transition-all`}
+          className={`w-8 h-8 rounded-full flex items-center justify-center transition-all`}
         >
           <XIcon size={16} weight="bold" />
         </button>

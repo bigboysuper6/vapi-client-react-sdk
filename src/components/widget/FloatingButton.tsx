@@ -57,14 +57,14 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
   return (
     <div
       id="vapi-widget-floating-button"
-      className={`hover:vapi-scale-105 hover:vapi--translate-y-1 hover:vapi-shadow-xl ${
-        isTinyVoice && isCallActive ? 'vapi-animate-glow' : ''
+      className={`hover:scale-105 hover:-translate-y-1 hover:shadow-xl ${
+        isTinyVoice && isCallActive ? 'animate-glow' : ''
       }`}
       style={buttonStyle}
       onClick={handleClick}
     >
       <div
-        className="vapi-flex vapi-items-center vapi-space-x-2"
+        className="flex items-center space-x-2"
         style={{
           display: 'flex',
           alignItems: 'center',
