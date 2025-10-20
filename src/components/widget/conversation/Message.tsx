@@ -11,13 +11,9 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
   <div className="markdown-content">
     <ReactMarkdown
       components={{
-        p: ({ children }) => (
-          <p className="mb-3 last:mb-0">{children}</p>
-        ),
+        p: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
         ul: ({ children }) => (
-          <ul className="list-disc list-inside mb-3 last:mb-0">
-            {children}
-          </ul>
+          <ul className="list-disc list-inside mb-3 last:mb-0">{children}</ul>
         ),
         ol: ({ children }) => (
           <ol className="list-decimal list-inside mb-3 last:mb-0">
@@ -55,9 +51,7 @@ const MarkdownMessage: React.FC<MarkdownMessageProps> = ({
           <h1 className="text-lg font-bold mb-1">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="text-base font-bold mb-1">
-            {children}
-          </h2>
+          <h2 className="text-base font-bold mb-1">{children}</h2>
         ),
         h3: ({ children }) => (
           <h3 className="text-sm font-bold mb-1">{children}</h3>
@@ -84,9 +78,7 @@ const ConversationMessage: React.FC<ConversationMessageProps> = ({
   styles,
   isLoading = false,
 }) => (
-  <div
-    className={`flex ${role === 'user' ? 'justify-end' : 'justify-start'}`}
-  >
+  <div className={`flex ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
     <div
       className={`max-w-xs px-3 py-2 ${messageRadiusClasses[styles.radius]} text-sm`}
       style={{

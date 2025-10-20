@@ -74,9 +74,7 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
           <div className="font-medium">{mainLabel}</div>
           <div
             className={`text-sm ${
-              styles.theme === 'dark'
-                ? 'text-gray-300'
-                : 'text-gray-600'
+              styles.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
             }`}
           >
             {getStatusMessage()}
