@@ -102,7 +102,7 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
 
   // Auto-detect mobile and adjust size
   const size = isMobile ? 'tiny' : sizeProp;
-  
+
   // Custom setter that updates both state and localStorage
   const updateExpandedState = useCallback(
     (expanded: boolean) => {
