@@ -1,6 +1,7 @@
 import React from 'react';
 import { PaperPlaneTiltIcon } from '@phosphor-icons/react';
 import { ChatControlsProps } from '../../types';
+import { getVapiControlsClass } from '../../../utils/vapiMobileClass';
 
 const ChatControls: React.FC<ChatControlsProps> = ({
   chatInput,
@@ -11,7 +12,9 @@ const ChatControls: React.FC<ChatControlsProps> = ({
   styles,
   inputRef,
   placeholder = 'Type your message...', // Default fallback
-}) => (
+}) => {
+  const { buttonHeight, buttonWidth, inputHeight, inputFontSize } = getVapiControlsClass(styles.size);
+  return (
   <div className="flex items-center space-x-2">
     <input
       ref={inputRef}
@@ -24,7 +27,7 @@ const ChatControls: React.FC<ChatControlsProps> = ({
         styles.theme === 'dark'
           ? 'border-gray-600 text-white placeholder-gray-400'
           : 'border-gray-300 text-gray-900 placeholder-gray-500'
-      } focus:outline-none focus:ring-2`}
+      } focus:outline-none focus:ring-2 ${inputHeight} ${inputFontSize}`}
       style={
         {
           '--tw-ring-color':
@@ -45,7 +48,7 @@ const ChatControls: React.FC<ChatControlsProps> = ({
         !chatInput.trim() || !isAvailable
           ? 'opacity-50 cursor-not-allowed'
           : 'hover:opacity-90 active:scale-95'
-      }`}
+      } ${buttonWidth} ${buttonHeight}`}
       style={{
         backgroundColor: colors.accentColor,
         color: colors.ctaButtonTextColor || 'white',
@@ -54,6 +57,7 @@ const ChatControls: React.FC<ChatControlsProps> = ({
       <PaperPlaneTiltIcon size={20} weight="fill" />
     </button>
   </div>
-);
+  )
+};
 
 export default ChatControls;
