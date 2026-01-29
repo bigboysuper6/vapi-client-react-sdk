@@ -1,7 +1,9 @@
 import React from 'react';
 import { XIcon, ArrowsClockwiseIcon } from '@phosphor-icons/react';
 import AnimatedStatusIcon from '../AnimatedStatusIcon';
+import AgentIcon from '../AgentIcon';
 import { WidgetHeaderProps } from '../types';
+import { getVapiHeaderClass } from '../../utils/vapiMobileClass';
 
 const WidgetHeader: React.FC<WidgetHeaderProps> = ({
   mode,
@@ -38,6 +40,8 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
     return 'Choose voice or text';
   };
 
+  const { titleFontSize, subtitleFontSize, iconSize } = getVapiHeaderClass(styles.size);
+
   return (
     <div
       className={`relative z-10 p-4 flex items-center justify-between border-b ${
@@ -48,22 +52,33 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
       style={{ backgroundColor: colors.baseColor }}
     >
       <div className="flex items-center space-x-3">
-        <AnimatedStatusIcon
-          size={40}
-          connectionStatus={connectionStatus}
-          isCallActive={isCallActive}
-          isSpeaking={isSpeaking}
-          isTyping={isTyping}
-          baseColor={colors.accentColor}
-          colors={colors.accentColor}
-        />
+        {isCallActive ||
+        isTyping ||
+        isSpeaking ||
+        connectionStatus === 'connecting' ? (
+          <AnimatedStatusIcon
+            size={iconSize}
+            connectionStatus={connectionStatus}
+            isCallActive={isCallActive}
+            isSpeaking={isSpeaking}
+            isTyping={isTyping}
+            baseColor={colors.accentColor}
+            colors={colors.accentColor}
+          />
+        ) : (
+          <AgentIcon
+            size={iconSize}
+            color={colors.accentColor}
+            backgroundColor="transparent"
+          />
+        )}
 
         <div>
-          <div className="font-medium">{mainLabel}</div>
+          <div className={`font-medium ${titleFontSize}`}>{mainLabel}</div>
           <div
             className={`text-sm ${
               styles.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-            }`}
+            } ${subtitleFontSize}`}
           >
             {getStatusMessage()}
           </div>

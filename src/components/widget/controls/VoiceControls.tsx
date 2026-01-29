@@ -3,7 +3,6 @@ import {
   MicrophoneIcon,
   StopIcon,
   MicrophoneSlashIcon,
-  WaveformIcon,
 } from '@phosphor-icons/react';
 import { VoiceControlsProps } from '../../types';
 
@@ -37,6 +36,7 @@ const VoiceControls: React.FC<VoiceControlsProps> = ({
       </button>
     )}
     <button
+      id="vapi-voice-button"
       onClick={onToggleCall}
       disabled={!isAvailable && !isCallActive}
       className={`px-6 py-3 rounded-full font-medium transition-all flex items-center space-x-2 ${
@@ -61,7 +61,7 @@ const VoiceControls: React.FC<VoiceControlsProps> = ({
         </>
       ) : (
         <>
-          <WaveformIcon size={16} weight="bold" />
+          <MicrophoneIcon size={16} weight="fill" />
           <span>{startButtonText}</span>
         </>
       )}

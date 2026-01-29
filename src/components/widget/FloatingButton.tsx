@@ -2,6 +2,7 @@ import React from 'react';
 import AnimatedStatusIcon from '../AnimatedStatusIcon';
 import { FloatingButtonProps } from '../types';
 import { sizeStyles, buttonRadiusStyles } from '../constants';
+import AgentIcon from '../AgentIcon';
 
 const FloatingButton: React.FC<FloatingButtonProps> = ({
   isCallActive,
@@ -55,6 +56,7 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
 
   return (
     <div
+      id="vapi-widget-floating-button"
       className={`hover:scale-105 hover:-translate-y-1 hover:shadow-xl ${
         isTinyVoice && isCallActive ? 'animate-glow' : ''
       }`}
@@ -69,18 +71,39 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
           gap: '0.5rem', // space-x-2
         }}
       >
-        <AnimatedStatusIcon
-          size={
-            isTinyVoice && isCallActive ? 48 : styles.size === 'tiny' ? 24 : 28
-          }
-          connectionStatus={connectionStatus}
-          isCallActive={isCallActive}
-          isSpeaking={isSpeaking}
-          isTyping={isTyping}
-          baseColor={colors.accentColor}
-          colors={colors.accentColor}
-          volumeLevel={volumeLevel}
-        />
+        {isCallActive ||
+        isTyping ||
+        isSpeaking ||
+        connectionStatus === 'connecting' ? (
+          <AnimatedStatusIcon
+            size={
+              isTinyVoice && isCallActive
+                ? 48
+                : styles.size === 'tiny'
+                  ? 24
+                  : 28
+            }
+            connectionStatus={connectionStatus}
+            isCallActive={isCallActive}
+            isSpeaking={isSpeaking}
+            isTyping={isTyping}
+            baseColor={colors.accentColor}
+            colors={colors.accentColor}
+            volumeLevel={volumeLevel}
+          />
+        ) : (
+          <AgentIcon
+            size={
+              isTinyVoice && isCallActive
+                ? 48
+                : styles.size === 'tiny'
+                  ? 24
+                  : 28
+            }
+            color={colors.accentColor}
+            backgroundColor="transparent"
+          />
+        )}
 
         {(styles.size === 'compact' || styles.size === 'full') &&
           !isTinyVoice && (
