@@ -174,9 +174,8 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
     ctaButtonTextColor: effectiveColorButtonAccent,
   };
 
-  const effectiveSize = mode !== 'voice' && size === 'tiny' ? 'compact' : size;
   const styles: StyleConfig = {
-    size: effectiveSize,
+    size: size,
     radius: effectiveBorderRadius,
     theme,
   };

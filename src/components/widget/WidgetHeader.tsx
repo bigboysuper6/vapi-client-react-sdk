@@ -3,6 +3,7 @@ import { XIcon, ArrowsClockwiseIcon } from '@phosphor-icons/react';
 import AnimatedStatusIcon from '../AnimatedStatusIcon';
 import AgentIcon from '../AgentIcon';
 import { WidgetHeaderProps } from '../types';
+import { getVapiHeaderClass } from '../../utils/vapiMobileClass';
 
 const WidgetHeader: React.FC<WidgetHeaderProps> = ({
   mode,
@@ -39,6 +40,8 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
     return 'Choose voice or text';
   };
 
+  const { titleFontSize, subtitleFontSize, iconSize } = getVapiHeaderClass(styles.size);
+
   return (
     <div
       className={`relative z-10 p-4 flex items-center justify-between border-b ${
@@ -54,7 +57,7 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
         isSpeaking ||
         connectionStatus === 'connecting' ? (
           <AnimatedStatusIcon
-            size={40}
+            size={iconSize}
             connectionStatus={connectionStatus}
             isCallActive={isCallActive}
             isSpeaking={isSpeaking}
@@ -64,18 +67,18 @@ const WidgetHeader: React.FC<WidgetHeaderProps> = ({
           />
         ) : (
           <AgentIcon
-            size={40}
+            size={iconSize}
             color={colors.accentColor}
             backgroundColor="transparent"
           />
         )}
 
         <div>
-          <div className="font-medium">{mainLabel}</div>
+          <div className={`font-medium ${titleFontSize}`}>{mainLabel}</div>
           <div
             className={`text-sm ${
               styles.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-            }`}
+            } ${subtitleFontSize}`}
           >
             {getStatusMessage()}
           </div>
